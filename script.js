@@ -3,6 +3,7 @@ let lowerCase = "abcdefghijklmnopqrstuvwxyz";
 let number = "1234567890";
 let specialCharacter = "!@#$%^&*()_+";
 
+let password
 
 
 
@@ -75,15 +76,17 @@ function generatePassword(){
         let passwordLength = Number(document.getElementById("length").value);
         let randomIndexPicker;
         let passwordConcatLength = passwordConcat.length;
-        let password = "";
+        password = "";
         if(passwordLength){
             console.log(passwordLength)
-            if(passwordLength <= 50){
+            if(passwordLength <= 100){
                 for(let x = 1; x <= passwordLength; x++){
                     randomIndexPicker = Math.floor(Math.random()*passwordConcatLength);
                     password+=passwordConcat[randomIndexPicker];
                 }
-            } else {
+
+            } 
+            else {
                 password = "Your Password is too long!"
             }
         } else {
@@ -91,11 +94,23 @@ function generatePassword(){
         }
 
 
-
+        
         document.getElementById("passwordResult").textContent = password;
+        document.getElementById("copyButton").innerHTML = '<button onclick="copyPassword()">Copy Password</button>';
+        return password;
+        
+        
     } catch {
         document.getElementById("passwordResult").textContent = "Choose the included element first!"
     }
 
     
 }
+
+
+
+function copyPassword(){
+    navigator.clipboard.writeText(password);
+    
+}
+
