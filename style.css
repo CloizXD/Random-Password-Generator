@@ -5,14 +5,21 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    background: linear-gradient(to bottom,rgb(49, 122, 191), rgb(167, 209, 244), rgb(239, 255, 241) );
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    margin-top: 30px;
     
-    background: linear-gradient(to bottom, rgb(239, 255, 241), rgb(157, 184, 237)) 
+ 
     
 }
 
@@ -20,14 +27,17 @@
     
     padding: 40px;
     border-radius: 10px;
-    max-width: 2000px;
+    width: 600px;
+    
 }
 
-.password-form h1 {
+.container h1 {
+    text-shadow: 1px 1px 20px rgb(5, 56, 80) ;
+    
     margin-block: 10px;
     text-align: center;
-    color: rgb(16, 52, 123);
-    font-size: 45px;
+    color: rgb(233, 247, 255);
+    font-size: 50px;
 }
 
 input#length {
@@ -52,7 +62,7 @@ input#length {
     margin-block: 10px;
     margin-top: 50px;
 }
-button#submitButton, div#copyButton button  {
+button#submitButton, button#copyButton  {
     width: 40%;
     border: 0px;
     background-color: rgb(33, 148, 33);
@@ -62,12 +72,12 @@ button#submitButton, div#copyButton button  {
     transition: transform 0,2s;
 }
 
-button#submitButton:hover, div#copyButton button:hover{
+button#submitButton:hover, button#copyButton:hover{
     background-color: green;
     cursor: pointer;
     transform: scale(1.02,1.02);
 }
-button#submitButton:active, div#copyButton button:active {
+button#submitButton:active, button#copyButton:active {
     background-color: rgb(10, 89, 10);
     cursor: pointer;
     transform: scale(1,1);
@@ -91,7 +101,13 @@ button#submitButton:active, div#copyButton button:active {
     
 }
 
-div#copyButton {
+p#passwordResult.alertResult {
+    color: red;
+}
+
+
+
+div#copy {
     display: flex;
     justify-content: center;
     margin-block: 20px ;
@@ -106,15 +122,15 @@ div#copyButton {
         padding: 20px;
     }
 
-    .password-form h1 {
-        font-size: 25px;
+    .container h1 {
+        font-size: 30px;
     }
 
     .include-type {
         grid-template-columns: auto auto;
     }
 
-    button#submitButton, div#copyButton button {
+    button#submitButton, button#copyButton {
         width: 100%;
     }
 }
